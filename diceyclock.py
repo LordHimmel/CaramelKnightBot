@@ -21,14 +21,27 @@ but accepts two commands:
 
 def handle(msg):
     chat_id = msg['chat']['id']
-    command = msg['text']
+    command = str(msg['text']).lower()
 
     print ('Got command: %s' % command)
 
-    if command == '/roll':
+    if command.find('кинь д6')>=0:
         bot.sendMessage(chat_id, random.randint(1,6))
-    elif command == '/time':
+    elif command == '/help' or command.find( "помоги")>=0 :
+        bot.sendMessage(chat_id,"Я еще пока маленькая и почти ничего не умею. \nМогу кидать д6 и говорить сколько времени.\nТерпеть не могу ваху и считаю Даню пидором")
+    elif command.find('врем')>=0:
         bot.sendMessage(chat_id, str(datetime.datetime.now()))
+    elif command.find('карамель')>=0:
+        bot.sendMessage(chat_id, "Мур мур мур")
+
+    elif command.count("ваха")>0 :
+        bot.sendMessage(chat_id, "Вархаммер говно")
+
+    elif command.find("люблю")>=0 :
+        bot.sendMessage(chat_id,"А Я Папу и Маму люблю")
+    else:
+        bot.sendMessage(chat_id,"Помочь?")
+
 
 bot = telepot.Bot("500928095:AAF-GXdlcIZwHKM4z2iS7LiEx2u_K3YKLr4")
 
