@@ -27,6 +27,12 @@ def handle(msg):
 
     if command.find('кинь д6')>=0:
         bot.sendMessage(chat_id, random.randint(1,6))
+    elif command.count("помолимся за спасение душ")>0:
+        bot.sendMessage(chat_id,'Главный архитектор делает Push')
+    elif command.count("this is a bsod")>0:
+        bot.sendMessage(chat_id,'Плачет человече, ребут впереди')
+    elif command.count("this is a blue screen of death")>0:
+        bot.sendMessage(chat_id,'Плачет человече, нам всем пиздец')
     elif command == '/help' or command.find( "помоги")>=0 :
         bot.sendMessage(chat_id,"Я еще пока маленькая и почти ничего не умею. \nМогу кидать д6 и говорить сколько времени.\nТерпеть не могу ваху и считаю Даню пидором")
     elif command.find('врем')>=0:
