@@ -27,7 +27,7 @@ def by_content_type():
         return content_type, (msg[content_type],)
     return f
 
-def by_command(extractor, prefix=('/',), separator=' ', pass_args=False):
+def by_command(extractor, prefix=('',), separator='', pass_args=False):
     """
     :param extractor:
         a function that takes one argument (the message) and returns a portion
@@ -64,7 +64,7 @@ def by_command(extractor, prefix=('/',), separator=' ', pass_args=False):
         return (None,),  # to distinguish with `None`
     return f
 
-def by_chat_command(prefix=('/',), separator=' ', pass_args=False):
+def by_chat_command(prefix=('',), separator='', pass_args=False):
     """
     :param prefix:
         a list of special characters expected to indicate the head of a command.

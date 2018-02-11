@@ -3,7 +3,7 @@ import random
 import datetime
 import telepot
 from telepot.loop import MessageLoop
-
+from content import*
 """
 After **inserting token** in the source code, run it:
 
@@ -25,7 +25,12 @@ def handle(msg):
 
     print ('Got command: %s' % command)
 
-    if command.find('кинь д6')>=0:
+    if command[0]!='/':
+        try:
+            bot.sendMessage(chat_id,conversate(command))
+        except:
+            pass
+    elif command.find('кинь д6')>=0:
         bot.sendMessage(chat_id, random.randint(1,6))
     elif command == '/help' or command.find( "помоги")>=0 :
         bot.sendMessage(chat_id,"Я еще пока маленькая и почти ничего не умею. \nМогу кидать д6 и говорить сколько времени.\nТерпеть не могу ваху и считаю Даню пидором")
